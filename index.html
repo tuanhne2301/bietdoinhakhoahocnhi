@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Biệt đội nhà khoa học nhí – Khám phá Khoa học tự nhiên</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#e6f1ff;--bg2:#efe8ff;--card:#fff;--ink:#1d2b53;--mut:#5b6794;--blue:#3b6cf6;--purple:#7c4dff;--gold:#ffc83d;--ok:#1fae6e;--okbg:#dcf8ea;--bad:#e8506b;--badbg:#ffe3e8;--line:#cdd8fb;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#141a3a;--bg2:#1f1840;--card:#242b57;--ink:#eef1ff;--mut:#aab4e6;--okbg:#14412f;--badbg:#4a2230;--line:#3a4480}}
+:root[data-theme="dark"]{--bg1:#141a3a;--bg2:#1f1840;--card:#242b57;--ink:#eef1ff;--mut:#aab4e6;--okbg:#14412f;--badbg:#4a2230;--line:#3a4480}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;font-family:'Nunito','Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',sans-serif;font-weight:600;color:var(--ink);background:radial-gradient(circle at 12% 18%,rgba(255,200,61,.5) 0 3px,transparent 4px),radial-gradient(circle at 85% 12%,rgba(124,77,255,.35) 0 4px,transparent 5px),radial-gradient(circle at 70% 80%,rgba(59,108,246,.35) 0 3px,transparent 4px),linear-gradient(160deg,var(--bg1),var(--bg2));background-attachment:fixed;font-size:18px}
+.wrap{max-width:860px;margin:0 auto;padding:12px 14px 40px}
+header{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.logo{font-weight:900;font-size:1.05rem;color:var(--purple)}
+.pill{background:var(--card);border:2px solid var(--line);border-radius:99px;padding:6px 14px;font:inherit;font-weight:900;color:var(--ink);cursor:pointer}
+#chips{display:flex;gap:8px;margin:10px 0}
+.chip{flex:1;text-align:center;border-radius:14px;padding:6px 4px;font-size:.8rem;font-weight:800;background:var(--card);border:2px solid var(--line);color:var(--mut)}
+.chip.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.chip.dn{border-color:var(--gold);color:var(--ink)}
+.mascots{display:flex;align-items:flex-end;gap:10px;margin:6px 0 12px}
+.mascots svg{width:68px;height:68px;flex:none;animation:bob 3s ease-in-out infinite}
+.mascots .bot svg{animation-delay:-1.5s}
+.bub{flex:1;background:var(--card);border:3px solid var(--purple);border-radius:20px;padding:10px 14px;font-size:1rem;font-weight:800;min-height:56px;display:flex;align-items:center}
+.bub.good{border-color:var(--ok);background:var(--okbg)}.bub.bad{border-color:var(--bad);background:var(--badbg)}
+@keyframes bob{50%{transform:translateY(-5px)}}
+main{background:var(--card);border:3px solid var(--line);border-radius:26px;padding:18px;box-shadow:0 6px 0 var(--line)}
+h1{font-size:clamp(1.6rem,6vw,2.4rem);line-height:1.15;margin:0 0 8px;color:var(--blue);font-weight:900}
+h2{font-size:1.3rem;margin:8px 0 14px;line-height:1.35}
+.st{margin:0 0 6px;color:var(--purple);font-size:1rem;font-weight:900}
+.ask{margin:0 0 12px;color:var(--mut)}
+.center{text-align:center}
+.btn{display:inline-block;background:var(--gold);color:#3a2a00;border:0;border-radius:18px;padding:13px 26px;font:inherit;font-weight:900;font-size:1.1rem;cursor:pointer;box-shadow:0 5px 0 #d9a21b;margin-top:14px}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 #d9a21b}
+.qimg{display:flex;justify-content:center}.qimg svg{width:min(210px,60%);height:auto;border-radius:18px;background:linear-gradient(#cfe3ff,#eaf2ff)}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{background:var(--card);border:3px solid var(--line);border-radius:16px;padding:12px 14px;font:inherit;font-weight:800;color:var(--ink);text-align:left;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--blue)}
+.opt.ok,.tf.ok{background:var(--okbg);border-color:var(--ok)}.opt.no,.tf.no{background:var(--badbg);border-color:var(--bad)}
+.tfs{display:flex;gap:12px}.tf{flex:1;background:var(--card);border:3px solid var(--line);border-radius:18px;padding:14px;font:inherit;font-weight:900;font-size:1.2rem;color:var(--ink);cursor:pointer}
+.big{font-size:4rem;text-align:center;margin:0}
+.pool{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:14px;min-height:50px;padding:10px;border-radius:18px;background:var(--bg1)}
+.tcard{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;background:var(--card);border:3px solid var(--purple);border-radius:14px;padding:8px 12px;font-weight:800;font-size:.95rem}
+.tcard.sel{background:var(--gold);color:#3a2a00}.tcard.done{cursor:default;border-color:var(--ok);background:var(--okbg);font-size:.8rem;padding:4px 8px;margin:3px}
+.ghost{position:fixed;z-index:50;pointer-events:none;transform:rotate(-4deg) scale(1.08)}
+.slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.slot{border:3px dashed var(--blue);border-radius:16px;padding:8px;min-height:110px;background:var(--card)}
+.slot b{display:block;font-size:.95rem}.slot small{color:var(--mut);font-size:.75rem;display:block;margin-bottom:4px}
+.mt{display:grid;grid-template-columns:1fr 1.4fr;gap:10px 14px}.col{display:flex;flex-direction:column;gap:10px}
+.mb{background:var(--card);border:3px solid var(--line);border-radius:14px;padding:10px;font:inherit;font-weight:800;font-size:.9rem;color:var(--ink);cursor:pointer;text-align:left}
+.mb.L{border-color:var(--purple)}.mb.sel{background:var(--gold);color:#3a2a00}.mb.ok{background:var(--okbg);border-color:var(--ok);cursor:default}
+.shake{animation:sh .4s}@keyframes sh{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.stars{font-size:3rem;letter-spacing:6px;color:#d4d9ee}.stars b{color:var(--gold);text-shadow:0 2px 0 #d9a21b;font-weight:400;animation:pop .5s backwards}
+.stars b:nth-child(2){animation-delay:.2s}.stars b:nth-child(3){animation-delay:.4s}@keyframes pop{from{transform:scale(0) rotate(-90deg)}}
+.rows{max-width:380px;margin:10px auto;text-align:left}.rows div{display:flex;justify-content:space-between;padding:6px 0;border-bottom:2px dashed var(--line)}
+#cf{position:fixed;inset:0;pointer-events:none;z-index:60}
+.bub{font-size:1.15rem}h2{font-size:1.65rem}.opt{font-size:1.2rem;padding:15px 16px}.tf{font-size:1.5rem}.btn{font-size:1.35rem;padding:15px 30px}.tcard{font-size:1.1rem}.tcard.done{font-size:.95rem}.mb{font-size:1.1rem;padding:13px}.slot b{font-size:1.1rem}.slot small{font-size:.9rem}.chip{font-size:.95rem}.pill{font-size:1rem}.logo{font-size:1.2rem}
+.bar{height:14px;background:var(--card);border:2px solid var(--line);border-radius:9px;overflow:hidden;margin:8px 0}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--purple));transition:width .4s}
+.hint{background:var(--card);color:var(--purple);border:3px solid var(--purple);border-radius:14px;padding:9px 16px;font:inherit;font-weight:900;font-size:1.05rem;cursor:pointer;margin-top:12px}.hint:disabled{opacity:.45;cursor:default}
+.nm{width:100%;max-width:360px;font:inherit;font-weight:800;font-size:1.3rem;padding:12px 16px;border-radius:16px;border:3px solid var(--purple);background:var(--card);color:var(--ink);text-align:center}
+.how{max-width:540px;margin:12px auto;text-align:left;padding-left:1.3em;font-size:1.05rem}.how li{margin:6px 0}
+.hero{display:flex;justify-content:center;gap:16px}.hero svg{width:110px;height:110px}
+@media(min-width:900px){body{font-size:23px}.wrap{max-width:1000px}.mascots svg{width:84px;height:84px}}
+:focus-visible{outline:3px solid var(--purple);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><div class="logo">🚀 Biệt đội nhà khoa học nhí</div><div><span class="pill">⭐ <span id="sc">0</span> điểm</span> <button class="pill" id="mu" aria-label="Bật tắt âm thanh">🔊 Âm thanh: Bật</button></div></header>
+<div class="bar" aria-label="Tiến độ"><i id="pb"></i></div><div id="chips"></div>
+<section class="mascots"><div class="kid" id="kid"></div><div class="bub" id="bub"></div><div class="bot" id="bot"></div></section>
+<main id="main"></main>
+</div>
+<canvas id="cf"></canvas>
+<script>
+const $=s=>document.querySelector(s),main=$('#main'),sh=a=>a.map(x=>[Math.random(),x]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]);
+$('#kid').innerHTML=`<svg viewBox="0 0 64 64"><path d="M8 64q0-17 24-17t24 17z" fill="#fff" stroke="#3b6cf6" stroke-width="3"/><circle cx="32" cy="29" r="17" fill="#ffd7b5"/><path d="M14 28q0-19 18-19t18 19q-8-9-18-9t-18 9z" fill="#4a2c8a"/><rect x="16" y="11" width="32" height="8" rx="4" fill="#ffc83d" stroke="#3b6cf6" stroke-width="2"/><circle cx="25" cy="31" r="3" fill="#1d2b53"/><circle cx="39" cy="31" r="3" fill="#1d2b53"/><path d="M26 38q6 6 12 0" stroke="#1d2b53" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>`;
+$('#bot').innerHTML=`<svg viewBox="0 0 64 64"><line x1="32" y1="6" x2="32" y2="14" stroke="#7c4dff" stroke-width="3"/><circle cx="32" cy="6" r="4" fill="#ffc83d"/><rect x="9" y="14" width="46" height="34" rx="12" fill="#9db8ff" stroke="#3b6cf6" stroke-width="3"/><circle cx="23" cy="30" r="6" fill="#fff"/><circle cx="41" cy="30" r="6" fill="#fff"/><circle cx="24" cy="31" r="3" fill="#1d2b53"/><circle cx="42" cy="31" r="3" fill="#1d2b53"/><path d="M25 40q7 5 14 0" stroke="#1d2b53" stroke-width="2.5" fill="none" stroke-linecap="round"/><rect x="18" y="50" width="28" height="10" rx="4" fill="#7c4dff"/></svg>`;
+// Âm thanh
+let AC,mute=false;
+function tone(f,t,d,ty='sine'){try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain(),n=AC.currentTime+t;o.type=ty;o.frequency.value=f;g.gain.setValueAtTime(.14,n);g.gain.exponentialRampToValueAtTime(.001,n+d);o.connect(g);g.connect(AC.destination);o.start(n);o.stop(n+d)}catch(e){}}
+const sOk=()=>{if(!mute){tone(660,0,.15);tone(880,.12,.2)}},sBad=()=>{if(!mute)tone(230,0,.28,'triangle')},sWin=()=>{if(!mute)[523,659,784,1047].forEach((f,i)=>tone(f,i*.12,.28))};
+$('#mu').onclick=()=>{mute=!mute;$('#mu').textContent=mute?'🔇 Âm thanh: Tắt':'🔊 Âm thanh: Bật'};
+function confetti(){const c=$('#cf'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;const k=['#3b6cf6','#7c4dff','#ffc83d','#22b573','#f0617a'];const P=Array.from({length:120},()=>({x:innerWidth/2,y:innerHeight*.4,vx:(Math.random()-.5)*15,vy:-Math.random()*14-3,s:6+Math.random()*7,c:k[Math.random()*5|0],r:Math.random()*6}));let f=0;(function a(){x.clearRect(0,0,c.width,c.height);P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.35;p.r+=.2;x.fillStyle=p.c;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);x.restore()});if(++f<140)requestAnimationFrame(a);else x.clearRect(0,0,c.width,c.height)})()}
+// Dữ liệu
+const F=[['Vật lí','⚡','lực • ánh sáng • năng lượng','Chuyển động, lực, âm thanh, ánh sáng, điện, từ và năng lượng'],['Hóa học','🧪','chất • biến đổi','Chất, tính chất của chất và sự biến đổi của chất'],['Sinh học','🌱','sinh vật • sự sống','Sinh vật và các hoạt động sống của sinh vật'],['Khoa học Trái Đất','🌋','đất • đá • khí quyển','Trái Đất: đất, đá, núi lửa, động đất, khí quyển'],['Thiên văn học','🔭','sao • hành tinh','Mặt Trời, Mặt Trăng, các hành tinh, ngôi sao và vũ trụ']];
+const IMG={
+fl:`<svg viewBox="0 0 120 100"><path d="M48 8h24v30l27 46q4 10-7 10H28q-11 0-7-10l27-46z" fill="#e4edff" stroke="#3b6cf6" stroke-width="4" stroke-linejoin="round"/><path d="M36 64h48l14 22q4 8-6 8H28q-10 0-6-8z" fill="#7c4dff"/><circle cx="55" cy="52" r="4" fill="#ffc83d"/><circle cx="68" cy="44" r="3" fill="#ffc83d"/></svg>`,
+vo:`<svg viewBox="0 0 120 100"><circle cx="60" cy="14" r="7" fill="#aeb6cf"/><circle cx="72" cy="8" r="6" fill="#c5cbe0"/><path d="M8 96L44 42h32l36 54z" fill="#8a5a44"/><path d="M44 42l8 12 8-8 8 8 8-12z" fill="#ff7a3d"/><circle cx="40" cy="28" r="3" fill="#ff7a3d"/><circle cx="84" cy="30" r="3" fill="#ffc83d"/></svg>`,
+pl:`<svg viewBox="0 0 120 100" style="background:#1d2b53"><circle cx="20" cy="20" r="2" fill="#fff"/><circle cx="100" cy="16" r="2" fill="#ffc83d"/><circle cx="96" cy="84" r="2" fill="#fff"/><circle cx="60" cy="50" r="26" fill="#7c4dff"/><ellipse cx="60" cy="52" rx="46" ry="10" fill="none" stroke="#ffc83d" stroke-width="5" transform="rotate(-18 60 52)"/><circle cx="50" cy="40" r="5" fill="#9d7cff"/></svg>`};
+const Q=[
+{q:'Lĩnh vực nào nghiên cứu về chất và sự biến đổi của chất?',i:'fl',o:['Vật lí','Hóa học','Sinh học','Thiên văn học'],a:1,h:'Các thí nghiệm pha trộn, đốt cháy chất thuộc lĩnh vực này.'},
+{q:'Núi lửa phun trào thuộc lĩnh vực nào?',i:'vo',o:['Khoa học Trái Đất','Hóa học','Vật lí','Sinh học'],a:0,h:'Núi lửa là hiện tượng xảy ra ngay trên Trái Đất.'},
+{q:'Lĩnh vực nào nghiên cứu về lực, chuyển động, ánh sáng và năng lượng?',o:['Sinh học','Thiên văn học','Hóa học','Vật lí'],a:3,h:'Quả bóng lăn, đèn sáng đều liên quan đến lĩnh vực này.'},
+{q:'Các hành tinh và ngôi sao được nghiên cứu trong lĩnh vực nào?',i:'pl',o:['Sinh học','Hóa học','Thiên văn học','Vật lí'],a:2,h:'Lĩnh vực này nhìn lên bầu trời và vũ trụ.'},
+{q:'Khoa học tự nhiên nghiên cứu điều gì?',o:['Lịch sử các triều đại','Các sự vật, hiện tượng trong tự nhiên và ảnh hưởng của chúng đến con người, môi trường','Cách vẽ tranh phong cảnh','Quy tắc ngữ pháp tiếng Việt'],a:1,h:'Hãy nghĩ đến những gì có trong thiên nhiên quanh ta.'}];
+const C=[['Quả táo rơi','🍎',0,'Quả táo rơi do lực hấp dẫn, đó là về lực và chuyển động.'],['Cầu vồng','🌈',0,'Cầu vồng liên quan đến ánh sáng.'],['Nến cháy','🕯️',1,'Nến cháy tạo ra chất mới, đó là sự biến đổi chất.'],['Sắt bị gỉ','🔩',1,'Sắt biến đổi thành chất khác.'],['Cây quang hợp','🌿',2,'Đây là hoạt động sống của sinh vật.'],['Hạt nảy mầm','🌱',2,'Hạt lớn lên thành cây, đó là sinh vật.'],['Động đất','🌍',3,'Hiện tượng xảy ra trong lòng Trái Đất.'],['Núi lửa phun trào','🌋',3,'Núi lửa là một phần của Trái Đất.'],['Nhật thực','🌑',4,'Mặt Trăng che Mặt Trời, thuộc về bầu trời.'],['Sao chổi','☄️',4,'Sao chổi là thiên thể trong vũ trụ.']];
+const T=[['Con mèo là vật sống.','🐱',1,'Mèo ăn, lớn lên và sinh sản.'],['Hòn đá có thể lớn lên và sinh sản.','🪨',0,'Hòn đá là vật không sống, không lớn lên, không sinh sản.'],['Cây phượng cần nước và ánh sáng để sống.','🌳',1,'Cây là sinh vật cần nước, ánh sáng, không khí.'],['Chiếc bàn gỗ là vật sống vì được làm từ cây.','🪑',0,'Gỗ đã được chế tạo, chiếc bàn không còn các hoạt động sống.'],['Vật sống có thể sinh sản và cảm ứng với môi trường.','🧬',1,'Sinh sản và cảm ứng là dấu hiệu của vật sống.'],['Ô tô chạy được nên ô tô là vật sống.','🚗',0,'Chuyển động nhờ động cơ, ô tô không lớn lên hay sinh sản.']];
+C[1]=['Xe đạp chạy','🚲',0];C[5]=['Gà con lớn lên','🐥',2];C[9]=['Mặt Trăng quay quanh Trái Đất','🌙',4];
+const CE=['Quả táo rơi do lực hút của Trái Đất, đó là nội dung của Vật lí.','Chuyển động của vật là đối tượng nghiên cứu của Vật lí.','Nến cháy làm chất biến đổi thành chất khác, thuộc Hóa học.','Sắt bị gỉ là sự biến đổi của chất, thuộc Hóa học.','Quang hợp là hoạt động sống của sinh vật, thuộc Sinh học.','Lớn lên là hoạt động sống của sinh vật, thuộc Sinh học.','Động đất là hiện tượng trên Trái Đất, thuộc Khoa học Trái Đất.','Núi lửa phun trào là hiện tượng trên Trái Đất, thuộc Khoa học Trái Đất.','Nhật thực liên quan đến Mặt Trời và Mặt Trăng, thuộc Thiên văn học.','Mặt Trăng là thiên thể trong vũ trụ, thuộc Thiên văn học.'];
+const QE=[['Hóa học nghiên cứu chất và sự biến đổi của chất.',1],['Núi lửa là hiện tượng trên Trái Đất nên thuộc Khoa học Trái Đất.',3],['Vật lí nghiên cứu về lực, chuyển động, ánh sáng và năng lượng.',0],['Thiên văn học nghiên cứu các hành tinh, ngôi sao và vũ trụ.',4],['Khoa học tự nhiên nghiên cứu các sự vật, hiện tượng trong tự nhiên và ảnh hưởng của chúng đến con người, môi trường.',6]];Q.forEach((q,i)=>{q.e=QE[i][0];q.f=QE[i][1]});
+const TH=['Mèo có ăn uống, lớn lên và sinh sản không?','Hòn đá có sinh sản không?','Cây cũng là sinh vật.','Gỗ đã làm thành bàn còn hoạt động sống không?','Hãy nhớ các dấu hiệu của vật sống.','Ô tô có lớn lên và sinh sản không?'];
+const PR=['Giỏi lắm! 🎉','Chính xác! ⭐','Tuyệt vời! 🚀','Siêu quá, nhà khoa học nhí! 🔬','Đúng rồi! 👏'];
+const MAX=[100,100,100,90],NAME=['Trắc nghiệm','Kéo thả','Nối cặp','Đúng hay Sai'];
+let S,ten='';
+const say=(t,k='')=>{const b=$('#bub');b.className='bub '+k;b.textContent=t};
+function hud(){$('#sc').textContent=S.score;$('#pb').style.width=Math.min(100,S.n/26*100)+'%';$('#chips').innerHTML=NAME.map((n,i)=>`<div class="chip ${i==S.stage?'on':S.stars[i]?'dn':''}">Màn ${i+1}${S.stars[i]?' '+'★'.repeat(S.stars[i]):''}</div>`).join('')}
+function add(p){S.score+=p;S.st[S.stage]+=p;hud()}
+const pen=()=>{if(S.st[S.stage]>0)add(-1)};
+const hb=fn=>{const b=document.createElement('button');b.className='hint';b.textContent='💡 Gợi ý (trừ 1 điểm)';b.onclick=()=>{const t=fn();if(t){pen();say('💡 '+t)}};main.appendChild(b);return b};
+const P=(n,h)=>{main.innerHTML=`<p class="st">Màn ${n+1} · ${NAME[n]}</p>`+h;scrollTo({top:0,behavior:'smooth'})};
+const nb=(l,fn)=>{const b=document.createElement('button');b.className='btn';b.textContent=l;b.onclick=fn;main.appendChild(Object.assign(document.createElement('div'),{className:'center'})).appendChild(b);b.focus()};
+function start(){S={stage:-1,score:0,st:[0,0,0,0],stars:[0,0,0,0],n:0,miss:Array(7).fill(0)};hud();say('Chào em! Mình là Robot Bi. Hãy nhập tên rồi cùng khám phá nhé!');
+main.innerHTML=`<div class="center"><div class="hero">${$('#kid').innerHTML}${$('#bot').innerHTML}</div><h1>Biệt đội nhà khoa học nhí<br>Khám phá Khoa học tự nhiên</h1><p class="ask">Bài “Giới thiệu về Khoa học tự nhiên” · Lớp 6</p><ol class="how"><li>Em nhập tên rồi bấm “Bắt đầu”.</li><li>Vượt qua 4 màn: Trắc nghiệm, Kéo thả, Nối cặp, Đúng hay Sai.</li><li>Trả lời đúng được cộng điểm. Bấm “Gợi ý” sẽ bị trừ 1 điểm.</li></ol><input class="nm" id="nm" maxlength="20" placeholder="Nhập tên của em" value="${ten}" aria-label="Tên của em"><br><button class="btn" id="go">Bắt đầu 🚀</button></div>`;$('#go').onclick=()=>{const v=$('#nm').value.trim();if(!v){say('Em hãy nhập tên trước khi chơi nhé! ✏️','bad');$('#nm').focus();return}ten=v;say(`Chào ${ten}! Cùng bắt đầu thí nghiệm nào!`);go(0)}}
+function go(n){S.stage=n;hud();[m1,m2,m3,m4][n](0)}
+function endStage(){const n=S.stage,r=S.st[n]/MAX[n],s=r>=.8?3:r>=.5?2:1;S.stars[n]=s;hud();sWin();confetti();say(s==3?'Xuất sắc! Bạn qua màn với 3 sao!':'Bạn đã qua màn rồi, chúc mừng!','good');
+main.innerHTML=`<div class="center"><h1>Hoàn thành màn ${n+1}!</h1><div class="stars">${[0,1,2].map(i=>i<s?'<b>★</b>':'★').join('')}</div><h2>${S.st[n]} / ${MAX[n]} điểm</h2></div>`;
+nb(n<3?'Tiếp tục 🚀':'Xem kết quả 🏆',()=>n<3?go(n+1):fin())}
+function fin(){const r=Math.max(0,S.score)/390,ts=r>=.8?3:r>=.5?2:1,rk=ts==3?'Nhà khoa học xuất sắc':ts==2?'Nhà khoa học giỏi':'Nhà khoa học tập sự',nx=ts==3?'Em nắm rất vững bài học. Hãy giúp bạn bè cùng ôn nhé!':ts==2?'Em làm khá tốt. Ôn thêm vài phần nhỏ là sẽ xuất sắc!':'Em đã rất cố gắng. Hãy đọc lại bài rồi chơi lại để được nhiều sao hơn nhé!',RV=['Vật lí','Hóa học','Sinh học','Khoa học Trái Đất','Thiên văn học','Phân biệt vật sống và vật không sống','Khái niệm Khoa học tự nhiên'].filter((x,i)=>S.miss[i]>0);S.stage=4;hud();confetti();sWin();say(`${ten} ơi, em đã hoàn thành mọi thí nghiệm. Thật tuyệt!`,'good');
+main.innerHTML=`<div class="center"><h1>Kết quả của ${ten}</h1><h2>🏅 ${rk}</h2><div class="stars">${[0,1,2].map(i=>i<ts?'<b>★</b>':'★').join('')}</div><h2>${S.score} / 390 điểm · ${ts} sao</h2><p>${nx}</p></div><div class="rows">${NAME.map((n,i)=>`<div><span>Màn ${i+1}: ${n}</span><span>${S.st[i]}/${MAX[i]} · ${'★'.repeat(S.stars[i])}</span></div>`).join('')}</div><div class="rows"><b>📚 Em cần ôn lại:</b>${RV.length?RV.map(x=>`<div>${x}</div>`).join(''):'<div>Em không cần ôn thêm phần nào. Giỏi lắm!</div>'}</div>`;nb('Chơi lại 🔄',start)}
+// Màn 1
+function m1(i){const q=Q[i];say(`Câu ${i+1}/5: Chọn đáp án đúng nhé!`);
+P(0,`${q.i?`<div class="qimg">${IMG[q.i]}</div>`:''}<h2>${q.q}</h2><div class="opts">${q.o.map((o,k)=>`<button class="opt" data-k="${k}">${'ABCD'[k]}. ${o}</button>`).join('')}</div>`);
+const bs=[...main.querySelectorAll('.opt')],hh=hb(()=>{hh.disabled=true;return q.h});bs.forEach(b=>b.onclick=()=>{const k=+b.dataset.k;bs.forEach(x=>x.disabled=true);hh.disabled=true;S.n++;hud();
+if(k==q.a){b.classList.add('ok');add(20);sOk();say(PR[Math.random()*5|0]+' '+q.e,'good')}else{b.classList.add('no');bs[q.a].classList.add('ok');S.miss[q.f]++;sBad();say('Chưa đúng rồi, không sao đâu! '+q.e,'bad')}
+nb(i<4?'Tiếp tục':'Hoàn thành màn 1',()=>i<4?m1(i+1):endStage())})}
+// Màn 2
+function m2(){const cs=C.map((c,i)=>({i,n:c[0],e:c[1],f:c[2],h:CE[i],x:0})),L=sh(cs);let sel=null,drag=null,placed=0;say('Kéo mỗi thẻ vào đúng ô, hoặc chạm thẻ rồi chạm ô nhé!');
+P(1,`<p class="ask">Mỗi hiện tượng thuộc lĩnh vực KHTN nào?</p><div class="pool">${L.map(c=>`<div class="tcard" data-i="${c.i}">${c.e} ${c.n}</div>`).join('')}</div><div class="slots">${F.map((f,k)=>`<div class="slot" data-f="${k}"><b>${f[1]} ${f[0]}</b><small>${f[2]}</small><div class="in"></div></div>`).join('')}</div>`);
+function place(el,s){const c=cs[+el.dataset.i];if(sel){sel.classList.remove('sel');sel=null}
+if(c.f==+s.dataset.f){el.classList.add('done');s.querySelector('.in').appendChild(el);add(c.x?5:10);S.n++;hud();sOk();say(PR[Math.random()*5|0]+' '+c.h,'good');if(++placed==10)setTimeout(endStage,700)}
+else{c.x=1;S.miss[c.f]++;el.classList.add('shake');setTimeout(()=>el.classList.remove('shake'),400);sBad();say('Chưa đúng rồi, thử lại nhé! Em có thể bấm nút Gợi ý.','bad')}}
+main.querySelectorAll('.slot').forEach(s=>s.onclick=()=>{if(sel)place(sel,s)});hb(()=>{if(!sel){say('Em hãy chạm vào một thẻ trước, rồi bấm Gợi ý nhé!');return ''}return 'Lĩnh vực này liên quan đến: '+F[cs[+sel.dataset.i].f][2]+'.'});
+main.querySelectorAll('.tcard').forEach(el=>{
+el.onpointerdown=e=>{if(el.classList.contains('done'))return;const r=el.getBoundingClientRect();drag={sx:e.clientX,sy:e.clientY,m:0,dx:e.clientX-r.left,dy:e.clientY-r.top};el.setPointerCapture(e.pointerId)};
+el.onpointermove=e=>{if(!drag)return;if(!drag.m&&Math.hypot(e.clientX-drag.sx,e.clientY-drag.sy)>8){drag.m=1;drag.g=el.cloneNode(true);drag.g.className='tcard ghost';document.body.appendChild(drag.g);el.style.opacity=.3}
+if(drag.m){drag.g.style.left=e.clientX-drag.dx+'px';drag.g.style.top=e.clientY-drag.dy+'px'}};
+el.onpointercancel=()=>{if(drag&&drag.g)drag.g.remove();drag=null;el.style.opacity=''};
+el.onpointerup=e=>{if(!drag)return;const d=drag;drag=null;el.style.opacity='';
+if(d.m){d.g.remove();const t=document.elementFromPoint(e.clientX,e.clientY),s=t&&t.closest('.slot');if(s)place(el,s)}
+else if(!el.classList.contains('done')){const was=sel===el;if(sel)sel.classList.remove('sel');sel=was?null:el;if(sel)el.classList.add('sel')}}})}
+// Màn 3
+function m3(){const R=sh(F.map((f,k)=>({k,t:f[3]}))),fail={};let L=null,done=0;say('Nối mỗi lĩnh vực với đối tượng nghiên cứu của nó nhé!');
+P(2,`<p class="ask">Chạm một lĩnh vực ở bên trái, rồi chạm đối tượng nghiên cứu tương ứng.</p><div class="mt"><div class="col">${F.map((f,k)=>`<button class="mb L" data-k="${k}">${f[1]} ${f[0]}</button>`).join('')}</div><div class="col">${R.map(r=>`<button class="mb" data-k="${r.k}">${r.t}</button>`).join('')}</div></div>`);
+hb(()=>{if(!L){say('Em hãy chọn một lĩnh vực ở cột trái trước, rồi bấm Gợi ý nhé!');return ''}return F[+L.dataset.k][0]+' liên quan đến: '+F[+L.dataset.k][2]+'.'});
+main.querySelectorAll('.mb').forEach(b=>b.onclick=()=>{if(b.classList.contains('ok'))return;
+if(b.classList.contains('L')){main.querySelectorAll('.L').forEach(x=>x.classList.remove('sel'));L=b;b.classList.add('sel');return}
+if(!L){say('Hãy chọn một lĩnh vực ở cột bên trái trước nhé! 👈');return}
+const k=+L.dataset.k;
+if(k==+b.dataset.k){L.classList.remove('sel');L.classList.add('ok');b.classList.add('ok');L=null;add(fail[k]?10:20);S.n++;hud();sOk();say(PR[Math.random()*5|0]+' '+F[k][0]+' nghiên cứu: '+F[k][3]+'.','good');if(++done==5)setTimeout(endStage,700)}
+else{fail[k]=1;S.miss[k]++;b.classList.add('shake');setTimeout(()=>b.classList.remove('shake'),400);sBad();say('Chưa khớp rồi, thử lại nhé! Em có thể bấm nút Gợi ý.','bad')}})}
+// Màn 4
+function m4(i){const t=T[i];say(`Câu ${i+1}/6: Đúng hay sai nhỉ?`);
+P(3,`<p class="big">${t[1]}</p><h2 class="center">${t[0]}</h2><div class="tfs"><button class="tf" data-v="1">✅ Đúng</button><button class="tf" data-v="0">❌ Sai</button></div>`);
+const bs=[...main.querySelectorAll('.tf')],hh=hb(()=>{hh.disabled=true;return TH[i]});bs.forEach(b=>b.onclick=()=>{bs.forEach(x=>x.disabled=true);hh.disabled=true;S.n++;hud();const v=+b.dataset.v;
+if(v==t[2]){b.classList.add('ok');add(15);sOk();say(PR[Math.random()*5|0]+' '+t[3],'good')}else{b.classList.add('no');bs[t[2]?0:1].classList.add('ok');S.miss[5]++;sBad();say('Chưa đúng rồi, không sao đâu! '+t[3],'bad')}
+nb(i<5?'Tiếp tục':'Hoàn thành màn 4',()=>i<5?m4(i+1):endStage())})}
+start();
+</script>
+</body>
+</html>
